@@ -21,8 +21,11 @@ class ProductsTableSeeder extends Seeder
                 'details' => [13, 14, 15][array_rand([13,14,15])].' inch, '. [1,2,3][array_rand([1,2,3])] .' TB SSD, 16GB RAM',
                 'price' => rand(149999, 249999),
                 'description' => 'Lorem '.$i.' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-            ]);
+            ])->categories()->withTimestamps()->attach(1);
         }
+
+        $product = Product::find(1);
+        $product->categories()->withTimestamps()->attach(2);
 
         //Desktop
         for ($i=1; $i<30; $i++){
@@ -32,7 +35,7 @@ class ProductsTableSeeder extends Seeder
                 'details' => [24, 25,27][array_rand([24,25,27])].' inch, '. [1,2,3][array_rand([1,2,3])] .' TB SSD, 16GB RAM',
                 'price' => rand(249999, 449999),
                 'description' => 'Lorem '.$i.' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-            ]);
+            ])->categories()->withTimestamps()->attach(2);
         }
 
         //Tablet
@@ -43,7 +46,7 @@ class ProductsTableSeeder extends Seeder
                 'details' => [24, 25,27][array_rand([24,25,27])].' inch, '. [1,2,3][array_rand([1,2,3])] .' TB SSD, 16GB RAM',
                 'price' => rand(249999, 449999),
                 'description' => 'Lorem '.$i.' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-            ]);
+            ])->categories()->withTimestamps()->attach(3);
         }
 
         //Phone
@@ -54,8 +57,10 @@ class ProductsTableSeeder extends Seeder
                 'details' => [24, 25,27][array_rand([24,25,27])].' inch, '. [1,2,3][array_rand([1,2,3])] .' TB SSD, 16GB RAM',
                 'price' => rand(249999, 449999),
                 'description' => 'Lorem '.$i.' ipsum dolor sit amet, consectetur adipisicing elit. Ipsum temporibus iusto ipsa, asperiores voluptas unde aspernatur praesentium in? Aliquam, dolore!',
-            ]);
+            ])->categories()->withTimestamps()->attach(4);
         }
+
+
 
 //        Product::create([
 //            'name' => 'MacBook Pro',

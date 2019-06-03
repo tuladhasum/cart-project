@@ -15,7 +15,7 @@
                             <h1 class="card-title">{{$product->name}}</h1>
                             <h3>{{$product->presentPrice()}}</h3>
                             <h6 class="card-subtitle">{{$product->details}}</h6>
-                            <p class="card-text">{{$product->description}}</p>
+                            <p class="card-text">{!! $product->description !!}</p>
                             <p class="card-text"> <small class="text-muted">Last updated {{$product->createAgo()}}</small></p>
                             <form action="{{route('cart.store')}}" method="post">
                                 @csrf

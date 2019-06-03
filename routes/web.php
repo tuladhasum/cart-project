@@ -23,7 +23,14 @@ Route::get('/cart/saveforlater/{product}','CartController@saveforlater')->name('
 
 //stoped at youtube 36:26 youtube
 
-Route::get('checkout', 'CheckoutController@index')->name('cart.checkout');
+Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
+Route::get('/checkout', 'CheckoutController@index')->name('cart.checkout');
+
+
+
+
+
+
 
 Route::get('/empty', function(){
    Cart::clear();
@@ -44,4 +51,9 @@ Route::group(['prefix'=>'test'], function(){
 
         return Cart::getContent();
     });
+});
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
 });

@@ -50,7 +50,7 @@
                                     <h5 class="card-title">{{$product->name}}</h5>
                                     <h6 class="card-subtitle">{{$product->details}}</h6>
                                     <hr>
-                                    {{$product->description}}
+                                    {!! $product->description !!}
                                     <p class="card-text">
                                         <small class="text-muted">Last updated {{$product->createAgo()}}</small>
                                     </p>

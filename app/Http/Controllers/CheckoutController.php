@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -36,7 +37,24 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $charge = Stripe::charges()->create([
+                'amount' => \Cart::getTotals() /100,
+                'currency' => 'USD',
+                'source' => $request->stripeToken,
+                'description' => 'Order',
+                'receipt_email' => $request->email,
+                'metadata' => [
+//                    'contents' => $contents,
+//                    'quantity' => \Cart::getQuantity()
+                ]
+            ]);
+
+        }catch (\Exception $e){
+            dd($e);
+            dd($request->all());
+
+        }
     }
 
     /**
